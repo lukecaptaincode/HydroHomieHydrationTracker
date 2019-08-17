@@ -1,14 +1,42 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<ion-icon *ngIf="!isLoading" class="settings-icon" name="settings" [routerLink]="['/settings/']"
+  routerDirection="forward"></ion-icon>
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <div class="ion-padding" *ngIf="isLoading">
+    <app-drop-loader></app-drop-loader>
+  </div>
+  <div class="ion-padding" *ngIf="!isLoading">
+    <ion-button (click)="presentHydrationPrompt()">Hydrate!</ion-button>
+    <svg class="drop level-badge" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-width="1.5" d="M15 3
+           Q16.5 6.8 25 18
+           A12.8 12.8 0 1 1 5 18
+           Q13.5 6.8 15 3z">
+      </path>
+      <text x="37%" y="55%" text-anchor="middle" dominantBaseline="middle" font-size="6" fill="black">
+        Level
+      </text>
+      <text x="37%" y="75%" text-anchor="middle" dominantBaseline="middle" font-size="8" fill="black">
+        {{user.level}}
+      </text>
+    </svg>
+
+    <div class="water-bottle">
+      <svg width="0" height="0">
+        <defs>
+          <clipPath id="myClip" clipPathUnits="objectBoundingBox">
+            <path
+              d="M64.36,206S81,74.71,93.33,80.15l.46.48h1c-3.06-3-5.88-7.27-5.88-11.9V22.83A16.87,16.87,0,0,1,105.7,6h28.54a16.87,16.87,0,0,1,16.83,16.83v45.9c0,4.63-2.82,8.85-5.89,11.9h1l.47-.48C159.16,74.75,176,205.26,176,205.26V202.5l-.19,1.35s.19-.81.19,1.41V402.48a4.07,4.07,0,0,1-4,4H68.05a4.07,4.07,0,0,1-4-4V204.72c0-2.23.18-1.42.18-1.42L64,202"
+              transform="scale(0.0081, 0.0022) translate(-59,41)" />
+
+          </clipPath>
+        </defs>
+      </svg>
+      <div class="water text-center" [ngStyle]="{'height':waterBottleProgress+'%'}">
+        <p> {{user.millilitersCurrentLevel}}ml /
+          {{user.millilitersToNextLevel}}ml</p>
+      </div>
+      <div class="water" [ngStyle]="{'height':waterBottleProgress+'%'}">
+      </div>
+    </div>
   </div>
 </ion-content>

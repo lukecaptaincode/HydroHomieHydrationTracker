@@ -1,1 +1,93 @@
+.ion-padding {
+    height: 100%;
+}
 
+.settings-icon {
+    position: absolute;
+    top: 3%;
+    right: 5%;
+    z-index: 10;
+}
+
+.drop {
+    &.level-badge {
+        position: absolute;
+        top: 2%;
+        left: 40%;
+        fill: rgba(#2a96ed, 0.25);
+        width: 25%;
+
+        text {
+            color: black;
+        }
+    }
+}
+
+.water-bottle {
+    height: 90%;
+    width: 50%;
+    position: relative;
+    background: rgba(#2a96ed, 0.1);
+    margin: 0 auto;
+    clip-path: url(#myClip);
+
+    .water {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        transition: height 1s ease-in-out;
+        width: 100%;
+        background-color: #2a96ed;
+
+        &:nth-of-type(2) {
+            background-color: rgba(#2a96ed, 0.35);
+        }
+
+        p {
+            position: absolute;
+            top: 50%;
+            margin: 0 auto;
+            color: white;
+            font-weight: bold;
+
+        }
+
+        @keyframes wave {
+            0% {
+                left: 0;
+            }
+
+            50% {
+                left: -20px;
+            }
+
+            100% {
+                left: 0;
+            }
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: -9px;
+            right: 0;
+            background-repeat: repeat;
+            height: 10px;
+            background-size: 20px 20px;
+        }
+
+        &:nth-of-type(1) {
+            &:before {
+                animation: wave 3s ease-in-out infinite;
+                background-image: radial-gradient(circle at 10px -5px, transparent 12px, #2a96ed 13px);
+            }
+
+
+        }
+    }
+
+
+}

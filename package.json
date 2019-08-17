@@ -1,8 +1,8 @@
 {
   "name": "HydroHomieHydrationTracker",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Luke Captain",
+  "homepage": "https://lukecaptain.com/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -20,10 +20,17 @@
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
+    "@ionic-native/admob-free": "^5.12.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.7.1",
+    "@ionic/storage": "^2.2.0",
+    "cordova-admob-sdk": "^0.24.1",
+    "cordova-android": "7.1.4",
+    "cordova-plugin-admob-free": "^0.27.0",
+    "cordova-promise-polyfill": "0.0.2",
+    "cordova-sqlite-storage": "^3.2.1",
     "core-js": "^2.5.4",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
@@ -55,5 +62,13 @@
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
   },
-  "description": "An Ionic project"
+  "description": "Track you hydration and become the ultimate homie",
+  "cordova": {
+    "plugins": {
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-admob-free": {
+        "ADMOB_APP_ID": "ca-app-pub-5946653721028511~6640404746"
+      }
+    }
+  }
 }

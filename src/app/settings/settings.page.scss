@@ -1,0 +1,38 @@
+ion-button{
+    margin: 0 auto;    
+}
+    .policy-wrapper {
+    position: relative;
+    height: max-content;
+    transition: all 0.2s ease-out;
+
+    &:hover,
+    &:active {
+        .policy {
+            height: max-content;
+            transition: all 0.2s ease-out;
+        }
+
+        ion-icon {
+            transition: all 0.2s ease-out;
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.policy {
+    height: 100px;
+    overflow: hidden !important;
+    transition: all 0.2s ease-out;
+
+    &:hover,
+    &:active {
+        transition: all 0.2s ease-out;
+        height: max-content;
+
+        ion-icon {
+            transition: all 0.2s ease-out;
+            transform: rotate(180deg);
+        }
+    }
+}
